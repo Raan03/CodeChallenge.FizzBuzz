@@ -1,7 +1,41 @@
 ﻿@page "/fizzbuzz"
-<div class="container-xxl my-5">
-    <h3>FizzBuzz Page</h3>
+<div class="container-xxl my-3">
+    <h3>Solve the FizzBuzz Problem</h3>
+    <p>Enter the values for Fizz, Buzz, and the stopping point to generate the FizzBuzz sequence.</p>
+    <EditForm Model="fizzBuzzModel">
+        <DataAnnotationsValidator />
+        <div class="border border-secondary-subtle rounder p-4">
+            <div class="row">
+                <div class="col">
+                    <label for="fizzValue" class="form-label">Fizz Value</label>
+                    <InputNumber id="fizzValue" class="form-control" @bind-Value="fizzBuzzModel.FizzValue" aria-describedby="fizzHelp" aria-label="Fizz Value" placeholder="Fizz Value" />
+                    <div id="fizzHelp" class="form-text text-muted">
+                        Replaces multiples of this number with 'fizz'
+                    </div>
+                    <ValidationMessage For="@(() => fizzBuzzModel.FizzValue)" />
+                </div>
+                <div class="col">
+                    <label for="buzzValue" class="form-label">Buzz Value</label>
+                    <InputNumber id="buzzValue" class="form-control" @bind-Value="fizzBuzzModel.BuzzValue" aria-describedby="buzzHelp" aria-label="Buss Value" placeholder="Buzz Value" />
+                    <div id="buzzHelp" class="form-text text-muted">
+                        Replaces multiples of this number with 'buzz'
+                        <ValidationMessage For="@(() => fizzBuzzModel.BuzzValue)" />
+
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="stopValue" class="form-label">Stop Value</label>
+                    <InputNumber id="stopValue" class="form-control" @bind-Value="fizzBuzzModel.StopValue" />
+                    <div id="stopHelp" class="form-text text-muted">
+                        What is the stop value?
+                    </div>
+                    <ValidationMessage For="@(() => fizzBuzzModel.StopValue)" />
+                </div>
+            </div>
+        </div>
+    </EditForm>
 </div>
 @code {
+    private FizzBuzzModel fizzBuzzModel = new FizzBuzzModel();
 
 }
