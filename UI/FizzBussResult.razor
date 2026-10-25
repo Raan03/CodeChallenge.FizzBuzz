@@ -1,0 +1,7 @@
+﻿<div class="col text-center border border-light p-1 @Result">@Result</div>
+
+@code {
+    [Parameter, EditorRequired]
+    public string Result { get; set; } = string.Empty;
+    public string cssClass { get; set; } = string.Empty;
+}

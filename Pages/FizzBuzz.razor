@@ -41,6 +41,19 @@
             </div>
         </div>
     </EditForm>
+    @if (fizzBuzzResults.Count > 0)
+    {
+        <div class="mt-3">
+            <h4>FizzBuzz Results:</h4>
+            <div class="row row-cols-5 border border-secondary-subtle rounded p-3">
+                @foreach (var item in fizzBuzzResults)
+                {
+                    <FizzBussResult Result="@item" />
+                }
+            </div>
+        </div>
+    }
+    
     @*
     @foreach (var item in fizzBuzzResults)
     {
